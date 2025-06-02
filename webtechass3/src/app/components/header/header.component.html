@@ -1,0 +1,137 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+/>
+<!-- <nav class="navbar navbar-expand-md">
+  <div class="container">
+    <div class="heading">Stock Search</div>
+    <button
+      class="navbar-toggler ms-auto"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="isMenuCollapsed = !isMenuCollapsed"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div
+      class="collapse navbar-collapse"
+      id="navbarNav"
+      [ngbCollapse]="isMenuCollapsed"
+    >
+      <ul class="navbar-nav">
+        <li
+          class="nav-item"
+          id="searchNavItem"
+          #searchNavItem
+          (click)="deactivateAllNavItems(); activateNavItem(searchNavItem)"
+        >
+          <a class="nav-link" routerLink="/">Search</a>
+        </li>
+        <li
+          class="nav-item"
+          id="watchlistNavItem"
+          #watchlistNavItem
+          (click)="deactivateAllNavItems(); activateNavItem(watchlistNavItem)"
+        >
+          <a class="nav-link" [routerLink]="['/watchlist']">Watchlist</a>
+        </li>
+        <li
+          class="nav-item"
+          id="portfolioNavItem"
+          #portfolioNavItem
+          (click)="deactivateAllNavItems(); activateNavItem(portfolioNavItem)"
+        >
+          <a class="nav-link" routerLink="/portfolio">Portfolio</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-custom navbar-dark">
+  <a class="navbar-brand pl-3 navtitle" routerLink="/">Stock Search</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    [attr.aria-expanded]="!isMenuCollapsed"
+    (click)="isMenuCollapsed = !isMenuCollapsed"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
+    <div class="navbar-nav ms-auto">
+      <div class="nav-item">
+        <span
+          #searchItem
+          (click)="service.activateNavItem(searchItem)"
+          class="toolbar-btn py-2 px-3 currTab"
+          routerLink="/search/{{
+            service.mainTicker == '' ? 'home' : service.mainTicker
+          }}"
+          >Search
+        </span>
+      </div>
+      <div class="nav-item">
+        <span
+          #watchlistItem
+          (click)="service.activateNavItem(watchlistItem)"
+          class="toolbar-btn py-2 px-3"
+          routerLink="/watchlist"
+          >Watchlist</span
+        >
+      </div>
+      <div class="nav-item">
+        <span
+          #portfolioItem
+          (click)="service.activateNavItem(portfolioItem)"
+          class="toolbar-btn py-2 px-3"
+          routerLink="/portfolio"
+          >Portfolio</span
+        >
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- <nav class="navbar navbar-expand-lg navbar-custom navbar-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03"
+    aria-label="Toggle navigation"
+    [attr.aria-expanded]="!isMenuCollapsed"
+    (click)="isMenuCollapsed = !isMenuCollapsed"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div
+    class="collapse navbar-collapse"
+    id="navbarTogglerDemo03"
+    [ngbCollapse]="isMenuCollapsed"
+  >
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link">Search <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Watchlist</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Portfolio</a>
+      </li>
+    </ul>
+  </div>
+</nav> -->

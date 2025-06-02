@@ -1,0 +1,52 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+/>
+<mat-grid-list
+  [cols]="breakpoint"
+  (window:resize)="onResize($event)"
+  [rowHeight]="h"
+  style="margin-bottom: 10px"
+>
+  <mat-grid-tile *ngFor="let q of service.newsData"
+    ><mat-card
+      (click)="service.openDialog('0ms', '0ms', q)"
+      class="mb-md-0 mb-xs-5 mt-md-0 mt-xs-5"
+    >
+      <div class="row d-flex justify-content-start">
+        <div
+          class="col-xl-3 col-md-3 col-sm-6 d-flex justify-content-start"
+          style="padding: 0px; margin-bottom: 8px"
+        >
+          <img
+            src="{{ q.image }}"
+            class="d-md-none img-fluid"
+            style="height: 130px; margin: auto; width: 100%; border-radius: 4px"
+          />
+          <img
+            src="{{ q.image }}"
+            class="d-none d-md-none d-lg-block d-xl-block d-xxl-block img-fluid"
+            style="
+              height: 60px;
+              margin: auto;
+              width: 110px;
+              border-radius: 4px;
+              object-fit: fill;
+              margin-top: 8px;
+            "
+          />
+        </div>
+        <div
+          class="col-xl-9 col-md-9 col-sm-6"
+          style="padding: 0px; margin-top: 16px; margin-bottom: 6px"
+        >
+          {{ q.headline }}
+        </div>
+      </div>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

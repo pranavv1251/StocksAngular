@@ -1,0 +1,18 @@
+* {
+  font-size: 12px;
+}
+b {
+  font-size: 12px;
+  font-weight: 700;
+}
+span {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+.separate {
+  height: 2px;
+}
+.sep {
+  height: 10px;
+}

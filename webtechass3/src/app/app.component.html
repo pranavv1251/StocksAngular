@@ -1,0 +1,81 @@
+<!-- <router-outlet></router-outlet> -->
+<!-- <app-header></app-header>
+<h2>Stock Search</h2>
+<input id="newSearch">
+<button (click) = 'addTicker()' [routerLink]="['/search']">Search</button>
+<h3 *ngFor="let item of demo2">
+  <b>{{item.ticker}}</b>
+</h3>
+<app-footer></app-footer> -->
+<!-- 
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+/>
+<app-header></app-header>
+<div id="heading">STOCK SEARCH</div>
+<form>
+  <div class="input-group mb-3">
+    <input
+      #searchBar
+      type="text"
+      class="form-control shadow-none"
+      id="newSearch"
+      aria-describedby="inputGroupFileAddon03"
+      aria-label="Upload"
+      placeholder="Enter stock ticker symbol"
+      matInput
+      [matAutocomplete]="auto"
+      (input)="autoSearch(searchBar.value)"
+    />
+    <span
+      class="glyphicon glyphicon-search"
+      aria-hidden="true"
+      (click)="addTicker()"
+    >
+    </span>
+    <span
+      class="glyphicon glyphicon-remove"
+      aria-hidden="true"
+      style="margin-right: 12px"
+      (click)="clearSearch()"
+    >
+    </span>
+  </div>
+</form>
+
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option *ngIf="isLoading" class="is-loading"
+    ><mat-progress-spinner
+      diameter="25"
+      mode="indeterminate"
+    ></mat-progress-spinner
+  ></mat-option>
+  @for (option of options; track option) {
+  <mat-option [value]="option.displaySymbol" (click)="addTicker()"
+    >{{ option.displaySymbol }}|{{ option.description }}</mat-option
+  >
+  }
+</mat-autocomplete> -->
+
+<!-- <input
+  type="text"
+  placeholder="Pick one"
+  aria-label="Number"
+  matInput
+  [matAutocomplete]="auto"
+/> -->
+
+<!-- <h3 *ngFor="let item of demo2">
+  <b>{{ item.ticker }}</b>
+</h3> -->
+<app-header></app-header>
+<router-outlet></router-outlet>
+
+<!-- [routerLink]="['/search']" -->
+
+<!-- <router-outlet></router-outlet> -->

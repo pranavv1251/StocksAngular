@@ -1,0 +1,53 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+* {
+  font-size: 11px;
+  text-decoration: none;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+mat-card {
+  margin-bottom: 20px;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.row {
+  margin: 0px;
+}
+
+i:hover {
+  cursor: pointer;
+}
+.mat-mdc-card-title {
+  display: inline;
+}
+.mat-mdc-card-subtitle {
+  display: inline;
+}
+h1 {
+  padding-top: 4px;
+  font-size: 24px;
+  font-weight: 500;
+}
+h2 {
+  padding-top: 6px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.content {
+  padding-top: 8px;
+}
+
+button {
+  font-size: 11px;
+  font-weight: 400;
+  margin-right: 6px;
+}
+.alert {
+  font-size: 12px;
+  font-weight: 400;
+}

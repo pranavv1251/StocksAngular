@@ -1,0 +1,10 @@
+server/node_modules/
+server/.env
+
+# Angular
+webtechass3/node_modules/
+webtechass3/dist/
+
+# General
+.DS_Store
+*.log

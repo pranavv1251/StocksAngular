@@ -1,0 +1,73 @@
+@import "../../../../node_modules/font-awesome/css/font-awesome.css";
+* {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  font-weight: 400;
+}
+h1,
+.h1 {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+.close-button {
+  position: absolute;
+  right: 0px;
+  height: 15px;
+  width: 15px;
+  color: blue;
+}
+.row {
+  margin: 0px;
+}
+mat-dialog-title {
+  padding: 0px;
+}
+
+h1,
+.h1 {
+  font-size: 26px;
+}
+h2 {
+  font-size: 12px;
+  color: grey;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+svg {
+  border-bottom: 1px solid #559ced;
+}
+.separate {
+  height: 1px;
+  background-color: silver;
+  opacity: 0.8;
+  padding-left: 13px;
+  padding-right: 13px;
+  margin-bottom: 12px;
+}
+.content {
+  padding-left: 13px;
+  padding-right: 13px;
+  color: black;
+}
+img {
+  height: 26px;
+  width: 26px;
+  margin-right: 4px;
+}
+
+#shareBox {
+  margin: 13px;
+  padding: 8px;
+  padding-bottom: 10px;
+  margin-top: 15px;
+  border: 1px solid silver;
+  border-radius: 6px;
+}
+a {
+  margin-right: 4px;
+}

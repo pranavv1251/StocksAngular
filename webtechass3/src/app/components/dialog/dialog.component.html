@@ -1,0 +1,92 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+/>
+<div
+  class="row"
+  style="padding-top: 10px; padding-left: 13px; padding-right: 13px"
+>
+  <div class="col-10">
+    <h1>{{ this.data.source }}</h1>
+    <h2>{{ this.data.datetime }}</h2>
+  </div>
+  <div class="col d-flex justify-content-end">
+    <!-- <i class="bi bi-x" [mat-dialog-close]="true"></i> -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      fill="#559ced"
+      class="bi bi-x"
+      [mat-dialog-close]="true"
+    >
+      <path
+        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+      />
+    </svg>
+    <!-- <mat-icon
+      class="close-icon"
+      color="#219ddb"
+      
+      style="text-decoration: underline"
+      >close</mat-icon
+    > -->
+  </div>
+</div>
+
+<div class="separate"></div>
+
+<div class="content">
+  <b style="font-size: 14px; font-weight: 600">{{ this.data.headline }}</b
+  ><br />
+  <span style="font-size: 12px; color: grey"
+    >{{ this.data.summary }}<br />
+    For more details, click
+    <a
+      target="_blank"
+      href="{{ this.data.url }}"
+      style="color: #559ced; text-decoration: underline"
+      >here</a
+    ></span
+  >
+</div>
+<div class="col" id="shareBox">
+  <span style="font-size: 12px; color: grey; ">Share</span>
+  <div class="row d-flex" style="margin-top: 14px">
+    <a
+      class="col-1"
+      target="_blank"
+      href="https://twitter.com/intent/tweet?text={{ this.data.headline }}{{
+        this.data.url
+      }}"
+    >
+      <img src="../../../assets/x-twitter.svg" />
+    </a>
+    <a
+      class="col-1"
+      target="_blank"
+      href="https://www.facebook.com/sharer/sharer.php?u=
+{{ this.data.url }}
+&amp;src=sdkpreparse"
+    >
+      <img
+        src="../../../assets/square-facebook.svg"
+        style="
+          filter: invert(28%) sepia(91%) saturate(7488%) hue-rotate(207deg)
+            brightness(98%) contrast(95%);
+        "
+      />
+    </a>
+  </div>
+</div>
+
+<!-- 
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+
+  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</mat-dialog-actions> -->

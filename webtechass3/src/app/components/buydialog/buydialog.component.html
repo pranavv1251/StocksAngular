@@ -1,0 +1,87 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+/>
+<div
+  class="row"
+  style="
+    padding-top: 14px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-bottom: 20px;
+  "
+>
+  <div class="col-10">
+    <h1>{{ this.data.ticker }}</h1>
+  </div>
+  <div class="col d-flex justify-content-end">
+    <!-- <i class="bi bi-x" [mat-dialog-close]="true"></i> -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      fill="#559ced"
+      class="bi bi-x"
+      [mat-dialog-close]="true"
+    >
+      <path
+        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+      />
+    </svg>
+  </div>
+</div>
+<div class="separate"></div>
+
+<div class="content">
+  <span style="opacity: 0.8; padding-bottom: 2px">
+    Price: {{ this.data.currP | number : ".2-2" }}<br
+  /></span>
+  <span style="opacity: 0.8; padding-bottom: 6px"
+    >Money in Wallet: ${{ this.data.money | number : ".2-2" }}<br
+  /></span>
+  <span style="opacity: 0.8; padding-bottom: 2px; margin-right: 4px"
+    >Quantity:</span
+  >
+  <input
+    matInput
+    #quantityBar
+    type="number"
+    value="0"
+    (input)="increasePrice(quantityBar.value, this.data.currP)"
+  />
+  <div
+    *ngIf="this.totalPrice > this.data.money"
+    style="padding: 0px; margin: 0px; color: red"
+  >
+    <div style="margin-top: 4px">Not enough money in wallet.</div>
+  </div>
+</div>
+<div class="separate"></div>
+<div class="row d-flex">
+  <div class="col d-flex justify-content-start" style="padding-left: 13px">
+    Total: {{ this.totalPrice | number : ".2-2" }}
+  </div>
+  <div
+    class="col d-flex justify-content-end"
+    style="padding-right: 13px; padding-bottom: 10px"
+  >
+    <button
+      class="btn-success btn-outline-success btn-sm"
+      [disabled]="this.totalPrice > this.data.money || this.totalPrice == 0"
+      (click)="finalBuy(quantityBar.value)"
+    >
+      Buy
+    </button>
+  </div>
+</div>
+
+<!-- 
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>No</button>
+  
+    <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+  </mat-dialog-actions> -->

@@ -1,0 +1,14 @@
+runtime: nodejs18
+
+instance_class: F2
+
+# env_variables:
+#   BUCKET_NAME: "webtechassignment3-front "
+
+# handlers:
+#   - url: /
+#     static_files: webtechass3/dist/webtechass3/browser/index.html
+#     upload: webtechass3/dist/webtechass3/browser/index.html
+
+#   - url: /
+#     static_dir: webtechass3/dist/webtechass3

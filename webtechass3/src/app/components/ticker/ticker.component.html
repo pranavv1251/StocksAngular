@@ -1,0 +1,209 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+/>
+
+<div
+  class="container d-flex justify-content-center"
+  *ngIf="service.mainSpin"
+  style="margin-top: 24px"
+>
+  <mat-progress-spinner
+    diameter="40"
+    mode="indeterminate"
+  ></mat-progress-spinner>
+</div>
+
+<div class="container" *ngIf="service.favAlert">
+  <!-- <ngb-alert #selfClosingAlert type="success" (closed)="successMessage = ''"
+    >{{ service.mainTicker }} added to Watchlist</ngb-alert
+  > -->
+
+  <div
+    #favAlert
+    class="alert alert-success alert-dismissible show"
+    role="alert"
+  >
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      style="margin-top: 4px"
+      (click)="service.closeAlert()"
+    ></button>
+    {{ service.mainTicker }} added to Watchlist
+  </div>
+</div>
+
+<div class="container" *ngIf="service.removeFav">
+  <!-- <ngb-alert #selfClosingAlert type="success" (closed)="successMessage = ''"
+    >{{ service.mainTicker }} added to Watchlist</ngb-alert
+  > -->
+
+  <div #favAlert class="alert alert-danger alert-dismissible show" role="alert">
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      style="margin-top: 4px"
+      (click)="service.closeAlert()"
+    ></button>
+    {{ service.mainTicker }} removed from Watchlist
+  </div>
+</div>
+
+<div class="container" *ngIf="service.buyAlert && service.mainTicker != ''">
+  <div #alert class="alert alert-success alert-dismissible show" role="alert">
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      style="margin-top: 4px"
+      (click)="service.closeAlert()"
+    ></button>
+    {{ service.mainTicker }} bought successfully
+  </div>
+</div>
+
+<div class="container" *ngIf="service.sellAlert && service.mainTicker != ''">
+  <div #alert class="alert alert-danger alert-dismissible show" role="alert">
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      style="margin-top: 4px"
+      (click)="service.closeAlert()"
+    ></button>
+    {{ service.mainTicker }} sold successfully
+  </div>
+</div>
+
+<div
+  class="container text-center"
+  *ngIf="
+    service.isOn && service.stock != '/search/undefined' && !service.mainSpin
+  "
+>
+  <div
+    class="row d-flex justify-content-center"
+    *ngFor="let item of service.demo2"
+  >
+    <div class="col-4 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-2 d-flex justify-content-end">
+          <h1 class="display-4">
+            {{ item.ticker }}
+          </h1>
+        </div>
+        <div class="col-1">
+          <i
+            class="{{ service.starIcon }}"
+            (click)="
+              !service.isFavorite
+                ? service.addWatchlist(service.mainTicker)
+                : service.removeWatchlist(service.mainTicker)
+            "
+          ></i>
+          <!-- <i
+            class="bi bi-star-fill"
+            [hidden]="!service.isFavorite"
+            style="color: #f8d620"
+          ></i> -->
+        </div>
+      </div>
+      <h2 class="display-6">{{ item.name }}</h2>
+      <h5>{{ item.exchange }}</h5>
+      <div class="row justify-content-center">
+        <div
+          class="col d-flex"
+          [ngClass]="
+            service.isBought ? 'justify-content-end' : 'justify-content-center'
+          "
+        >
+          <button
+            class="btn-success btn-outline-success btn-sm"
+            (click)="service.openBuy('0ms', '0ms', item)"
+          >
+            Buy
+          </button>
+        </div>
+        <div class="col d-flex justify-content-start" *ngIf="service.isBought">
+          <button
+            class="btn-danger btn-outline-danger btn-sm"
+            (click)="service.sellStock('0ms', '0ms', item, true)"
+          >
+            Sell
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-4 col-sm-1 col-md-2 col-lg-2 col-xl-2 col-xxl-2"
+      id="#logo"
+      style="
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0px;
+      "
+    >
+      <img
+        src="{{ item.logo }}"
+        class="d-md-none img-fluid"
+        style="height: 42%; margin: auto; width: 42%"
+      />
+      <img
+        src="{{ item.logo }}"
+        class="d-none d-md-block d-lg-none img-fluid"
+        style="height: 56%; margin: auto; width: 100%"
+      />
+      <img
+        src="{{ item.logo }}"
+        class="d-none d-md-none d-lg-block d-xl-block d-xxl-block img-fluid"
+        style="height: 72%; margin: auto; width: 46%"
+      />
+    </div>
+    <div class="col-4 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+      <h1
+        class="display-4"
+        [ngStyle]="{ color: service.stockChange >= '0' ? '#018730' : 'red' }"
+      >
+        {{ service.stockPrice | number : ".2-2" }}
+      </h1>
+      <div>
+        <i style="display: inline" class="{{ service.arrowIcon }}"></i>
+        <h2
+          class="display-6"
+          style="display: inline"
+          [ngStyle]="{ color: service.stockChange >= '0' ? '#018730' : 'red' }"
+        >
+          {{ service.stockChange | number : ".2-2" }} ({{
+            service.stockChangeP | number : ".2-2"
+          }}%)
+        </h2>
+      </div>
+      <h5>{{ service.currentDate | date : "yyyy-MM-dd HH:mm:ss" }}</h5>
+    </div>
+  </div>
+  <h4 style="margin-bottom: 14px">
+    <b [ngStyle]="{ color: service.marketOpen ? '#018730' : 'red' }">{{
+      service.marketTime
+    }}</b>
+  </h4>
+  <mat-tab-group dynamicHeight *ngIf="service.isOn" animationDuration="0ms">
+    <mat-tab label="Summary"> <app-summary-tab></app-summary-tab> </mat-tab>
+    <mat-tab label="Top News"><app-top-news-tab></app-top-news-tab></mat-tab>
+    <mat-tab label="Charts"> <app-historical> </app-historical></mat-tab>
+    <mat-tab label="Insights"> <app-insights></app-insights> </mat-tab>
+  </mat-tab-group>
+</div>
+
+<!-- *ngFor="let q of service.quote" -->
